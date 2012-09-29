@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<recordatorios>
+    <recordatorio visto="false">
+        <fecha>24-9-12</fecha>
+        <hora>23:23:23</hora>
+        <mensaje><![CDATA[Mensaje para el 24 de septiembre]]>
+        </mensaje>
+    </recordatorio>
+</recordatorios>

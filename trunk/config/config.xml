@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+<color escogido="modificado">
+<porDefecto>
+<componente color="-16777216" id="fondo"/>
+<componente color="-256" id="hora"/>
+<componente color="-256" id="fecha"/>
+<componente color="-256" id="titulo"/>
+<componente color="-65536" id="segundoFront"/>
+<componente color="-16777216" id="segundoBack"/>
+<componente color="-65536" id="horaFront"/>
+<componente color="-16777216" id="horaBack"/>
+<componente color="-65536" id="minutoFront"/>
+<componente color="-16777216" id="minutoBack"/>
+<componente color="-3407872" id="sistemaOperativo"/>
+<componente color="-3407872" id="gpu"/>
+</porDefecto>
+<modificado>
+<componente color="-16777216" id="fondo"/>
+<componente color="-16711936" id="hora"/>
+<componente color="-16711936" id="fecha"/>
+<componente color="-16711936" id="titulo"/>
+<componente color="-16777216" id="segundoFront"/>
+<componente color="-1" id="segundoBack"/>
+<componente color="-16777216" id="horaFront"/>
+<componente color="-1" id="horaBack"/>
+<componente color="-16777216" id="minutoFront"/>
+<componente color="-1" id="minutoBack"/>
+<componente color="-16711936" id="sistemaOperativo"/>
+<componente color="-3407872" id="gpu"/>
+</modificado>
+</color>
+<opacidad nivel="80.0"/>
+<posicion x="1013" y="665"/>
+<siempreEncima valor="true"/>
+</config>

@@ -1,22 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * Aplicacion.java
  *
  * Created on 08-11-2010, 08:46:58 PM
  */
-
 package cl.hora;
-/*
-
-
-*/
-
-/**/
-		
 
 import cl.jaudio.basico.AudioFile;
 import cl.jaudio.basico.Reproductor;
@@ -44,7 +31,6 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
-import transparentWindows.AWTUtilitiesWrapper;
 import xml.analizador.dom.JespXML;
 import xml.analizador.dom.modelo.Tag;
 
@@ -931,8 +917,6 @@ public class Aplicacion extends javax.swing.JFrame {
     }
 
     private void setPorcentajeTransparencia(float porcentaje) {
-        float opacidad = porcentaje / 100;
-        AWTUtilitiesWrapper.setWindowOpacity(this, (float)opacidad);
         Actualizar.opacidad(porcentaje);
         poropa.setText(String.valueOf((int)porcentaje)+"%");
     }

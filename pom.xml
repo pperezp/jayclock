@@ -23,6 +23,5 @@
       <artifactId>AbsoluteLayout</artifactId>
       <version>RELEASE113</version>
     </dependency>
-
   </dependencies>
 </project>

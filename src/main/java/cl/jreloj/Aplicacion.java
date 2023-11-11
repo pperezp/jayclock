@@ -1,11 +1,10 @@
 // Created on 08-11-2010, 08:46:58 PM
-package cl.jreloj.hora;
+package cl.jreloj;
 
 import cl.jreloj.jaudio.basico.AudioFile;
 import cl.jreloj.jaudio.basico.Reproductor;
 import cl.jreloj.util.K;
 import cl.jreloj.util.Ruta;
-import cl.jreloj.util.archivos.Ejecutar;
 import cl.jreloj.util.fecha.Fecha;
 import cl.jreloj.util.formulario.Redimensionar;
 import cl.jreloj.util.hora.Hora;
@@ -18,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.LineUnavailableException;
@@ -32,7 +32,6 @@ import javax.swing.SwingConstants;
 public class Aplicacion extends javax.swing.JFrame {
     private HHora hHora = new HHora();
     private HBeep hBeep = new HBeep();
-    private HGpu hgpu = new HGpu();
     //Objeto utilizado para poder rastrear el punto cuando queramos mover la ventana principal
     private Point punto;
     private List<K.Componente> componentes = new ArrayList<>();
@@ -113,7 +112,6 @@ public class Aplicacion extends javax.swing.JFrame {
         fecha = new javax.swing.JLabel();
         lblx = new javax.swing.JLabel();
         lblso = new javax.swing.JLabel();
-        gpu = new javax.swing.JLabel();
         lblAudio = new javax.swing.JLabel();
         hora = new javax.swing.JLabel();
         barraHora = new javax.swing.JProgressBar();
@@ -457,8 +455,8 @@ public class Aplicacion extends javax.swing.JFrame {
         setFocusCycleRoot(false);
         setFocusable(false);
         setFocusableWindowState(false);
-        setResizable(false);
         setUndecorated(true);
+        setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
@@ -467,7 +465,7 @@ public class Aplicacion extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel.setBackground(new java.awt.Color(0, 0, 0));
-        panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hora Actual", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 0, 0)));
+        panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hora Actual", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 13), new java.awt.Color(255, 0, 0))); // NOI18N
         panel.setForeground(new java.awt.Color(1, 1, 1));
         panel.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
@@ -530,15 +528,10 @@ public class Aplicacion extends javax.swing.JFrame {
         lblso.setText("SO Huéped: "+System.getProperty("os.name")+" ");
         panel.add(lblso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 220, 20));
 
-        gpu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        gpu.setForeground(new java.awt.Color(255, 255, 0));
-        gpu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        gpu.setText("GPU: xx");
-        panel.add(gpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 60, -1));
-
         lblAudio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblAudio.setForeground(new java.awt.Color(255, 0, 0));
         lblAudio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAudio.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/megafono.png")))); // NOI18N
         lblAudio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAudioMouseClicked(evt);
@@ -668,12 +661,7 @@ public class Aplicacion extends javax.swing.JFrame {
     }//GEN-LAST:event_lblxMouseReleased
 
     private void lblxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblxMouseClicked
-//        lblx.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        int op = Mensajes.mensajePreguntaSiNo
-                ("¿Esta seguro que desea Salir de la Aplicación JReloj?");
-        if(op==Mensajes.si){
-            System.exit(0);
-        }
+        System.exit(0);
     }//GEN-LAST:event_lblxMouseClicked
 
     private void lblxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblxMousePressed
@@ -909,10 +897,6 @@ public class Aplicacion extends javax.swing.JFrame {
                 setForegorund(lblso, "sistemaOperativo");
                 break;
             }
-            case GPU:{
-                setForegorund(gpu, "gpu");
-                break;
-            }
         }
     }
 
@@ -935,7 +919,6 @@ public class Aplicacion extends javax.swing.JFrame {
     private void iniciarHilos() {
         hHora.start();
         hBeep.start();
-        hgpu.start();
     }
 
     private void inicializarComponentesGraficos() {
@@ -1050,24 +1033,6 @@ public class Aplicacion extends javax.swing.JFrame {
         }
     }
 
-    private class HGpu extends Thread{
-        @Override
-        public void run(){
-            while(true){
-                if(Ejecutar.ejecutarComandoLinux("nvidia-settings -q [gpu:0]/GPUCoreTemp") == null){
-                    gpu.setText("");
-                    break;
-                }
-                gpu.setText(Ejecutar.ejecutarComandoLinux("nvidia-settings -q [gpu:0]/GPUCoreTemp")+"º");
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame Recordatorio;
     private javax.swing.JTextArea areaMensajes;
@@ -1082,7 +1047,6 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JFrame form_log;
     private javax.swing.JFrame form_opa;
     private javax.swing.JFrame form_tema;
-    private javax.swing.JLabel gpu;
     private javax.swing.JLabel hora;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1214,11 +1178,7 @@ public class Aplicacion extends javax.swing.JFrame {
 
                     @Override
                     public void actionPerformed(ActionEvent arg0) {
-                        int op = Mensajes.mensajePreguntaSiNo
-                                ("¿Esta seguro que desea Salir de la Aplicación JReloj?");
-                        if(op==Mensajes.si){
-                            System.exit(0);
-                        }
+                        System.exit(0);
                     }
                 });
                 /*MenuItem opTema = new MenuItem("Cambiar Tema");

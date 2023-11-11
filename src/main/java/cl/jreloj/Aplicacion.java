@@ -15,6 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -781,30 +782,45 @@ public class Aplicacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void lblAudioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAudioMouseClicked
-        try {
-            AudioFile a = new AudioFile(HoraAudio.RUTA_AUDIOS+"Button54.wav");
-            a.play(true);
-            Thread.sleep(a.getMiliSegundos());
-            final Reproductor r  = HoraAudio.decirHora();
-            new Thread(new Runnable() {
+        new Thread(() -> {
+            try {
+                // Obtén un InputStream del recurso de audio
+                InputStream audioInputStream = HoraAudio.class.getResourceAsStream(HoraAudio.RUTA_AUDIOS + "Button54.wav");
 
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(r.getMiliSegundos()+100);
-                        AudioFile a = new AudioFile(HoraAudio.RUTA_AUDIOS+"Button54.wav");
-                        a.play(true);
-                    } catch (            UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException ex) {
-                        Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                // Crea una instancia de AudioFile utilizando el InputStream
+                AudioFile a = new AudioFile(audioInputStream);
 
+                // Reproduce el audio en un hilo
+                a.play(true);
+
+                // Espera hasta que el hilo de audio termine
+                try {
+                    Thread.sleep(a.getMiliSegundos());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            }).start();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException ex) {
-            Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+                final Reproductor r  = HoraAudio.decirHora();
+
+                // Espera hasta que el hilo de audio termine
+                try {
+                    Thread.sleep(r.getMiliSegundos()+100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                // Obtén un InputStream del recurso de audio
+                audioInputStream = HoraAudio.class.getResourceAsStream(HoraAudio.RUTA_AUDIOS + "Button54.wav");
+
+                // Crea una instancia de AudioFile utilizando el InputStream
+                a = new AudioFile(audioInputStream);
+
+                // Reproduce el audio en un hilo
+                a.play(true);
+            }  catch (LineUnavailableException | IOException | UnsupportedAudioFileException ex) {
+                Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
     }//GEN-LAST:event_lblAudioMouseClicked
 
     private void lblAudioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAudioMouseExited

@@ -1,1 +1,1 @@
-mvn compile exec:java -Dexec.mainClass="cl.jreloj.Aplicacion"
+mvn compile exec:java -Dexec.mainClass="cl.jreloj.App"

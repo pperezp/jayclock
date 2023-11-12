@@ -36,7 +36,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>cl.jreloj.Aplicacion</mainClass>
+              <mainClass>cl.jreloj.App</mainClass>
             </manifest>
           </archive>
         </configuration>

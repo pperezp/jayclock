@@ -1,16 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cl.jreloj.util;
 
-/**
- *
- * @author Pato Pérez
- */
 public class K {
-    public static enum Componente{
-        TITULO_VENTANA, FONDO, HORA, FECHA, FONDO_BARRA_HORA, FONDO_BARRA_MINUTO,
-        FONDO_BARRA_SEGUNDO, BARRA_HORA, BARRA_MINUTO, BARRA_SEGUNDO, TITULO_SOHUESPED, GPU
+    public enum Component {
+        WINDOW_TITLE, BACKGROUND, HOUR, DATE, HOUR_BAR_BACKGROUND, MINUTE_BAR_BACKGROUND,
+        SECOND_BAR_BACKGROUND, HOUR_BAR, MINUTE_BAR, SECOND_BAR, GUEST_ONLY_TITLE, GPU
     }
 }

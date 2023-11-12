@@ -788,7 +788,7 @@ public class App extends JFrame {
 
         minuteProgressBar.setOrientation(SwingConstants.VERTICAL);
         hourProgressBar.setOrientation(SwingConstants.VERTICAL);
-        appSystemtray = new AppSystemtray(Path.ICON);
+        appSystemtray = new AppSystemtray();
         audioLabel.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/megaphone.png"))));
     }
 
@@ -903,8 +903,8 @@ public class App extends JFrame {
     private javax.swing.JRadioButton windowTitleColorRadio;
     // End of variables declaration//GEN-END:variables
 
-    private void setBackground(Component componente, String id) {
-        componente.setBackground(colorChooser.getColor());
+    private void setBackground(Component component, String id) {
+        component.setBackground(colorChooser.getColor());
     }
 
     private void setForegorund(Component component, String id) {
@@ -919,7 +919,7 @@ public class App extends JFrame {
         private Image icon;
         private PopupMenu popupMenu;
 
-        public AppSystemtray(String rutaDelIcono) {
+        public AppSystemtray() {
             if (SystemTray.isSupported()) {
                 tray = SystemTray.getSystemTray();
                 popupMenu = new PopupMenu();
@@ -977,8 +977,7 @@ public class App extends JFrame {
                 popupMenu.addSeparator();
                 popupMenu.add(closeMenuItem);
 
-
-                icon = Toolkit.getDefaultToolkit().getImage(rutaDelIcono);
+                icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/trayIcon.png"))).getImage();
                 trayicon = new TrayIcon(icon, TITLE, popupMenu);
                 trayicon.setImageAutoSize(true);
 

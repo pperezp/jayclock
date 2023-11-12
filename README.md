@@ -1,6 +1,6 @@
 # Run
 ```shell
-mvn compile exec:java -Dexec.mainClass="cl.jreloj.Aplicacion"
+mvn compile exec:java -Dexec.mainClass="cl.jreloj.App"
 ```
 
 # Generate jar with dependencies
@@ -12,6 +12,7 @@ java -jar target/jreloj-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 ## Necessary add this to pom.xml to generate jar with dependencies
+
 ```xml
 
 <build>
@@ -26,7 +27,7 @@ java -jar target/jreloj-1.0-SNAPSHOT-jar-with-dependencies.jar
                 </descriptorRefs>
                 <archive>
                     <manifest>
-                        <mainClass>cl.jreloj.Aplicacion</mainClass>
+                        <mainClass>cl.jreloj.Appcl.jreloj.App</mainClass>
                     </manifest>
                 </archive>
             </configuration>

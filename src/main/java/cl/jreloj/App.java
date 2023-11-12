@@ -806,7 +806,7 @@ public class App extends JFrame {
                 minuteProgressBar.setString("Minuto (" + Math.round(minuteProgressBar.getPercentComplete() * 100) + "%)");
                 secondProgressBar.setString("Segundo (" + Math.round(secondProgressBar.getPercentComplete() * 100) + "%)");
 
-                dateLabel.setText(UtilDate.getDayName() + " " + UtilDate.getDateAsString(false, true));
+                dateLabel.setText(DateUtil.getFormattedDate());
 
                 try {
                     Thread.sleep(1000);

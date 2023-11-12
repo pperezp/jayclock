@@ -65,3 +65,6 @@ ehthumbs.db
 *.swo
 *.swp
 *~
+
+node_modules
+package-lock.json

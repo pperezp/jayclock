@@ -9,6 +9,6 @@
         {"type": "perf", "hidden": true},
         {"type": "test", "section": "Test"}
     ],
-    "commitUrlFormat": "https://github.com/pperezp/jreloj/commit/{{hash}}",
-    "compareUrlFormat": "https://github.com/pperezp/jreloj/compare/{{previousTag}}...{{currentTag}}"
+    "commitUrlFormat": "https://github.com/pperezp/jayclock/commit/{{hash}}",
+    "compareUrlFormat": "https://github.com/pperezp/jayclock/compare/{{previousTag}}...{{currentTag}}"
 }

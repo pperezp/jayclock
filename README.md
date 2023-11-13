@@ -1,4 +1,4 @@
-# JReloj
+# Jay Clock
 
 A simple clock application developed in Java, providing an intuitive graphical interface for displaying the current time. This minimalist clock offers a clear digital representation of the time, ensuring an easy and efficient user experience.
 
@@ -7,7 +7,7 @@ A simple clock application developed in Java, providing an intuitive graphical i
 To run the application, use the following Maven command:
 
 ```shell
-mvn compile exec:java -Dexec.mainClass="cl.jreloj.App"
+mvn compile exec:java -Dexec.mainClass="cl.jay.clock.App"
 ```
 
 ##  Generate jar with dependencies
@@ -18,7 +18,7 @@ To generate a JAR file with dependencies, execute the following Maven commands:
 mvn clean package
 ```
 ```shell
-java -jar target/jreloj-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar target/jayclock-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 ## Necessary add this to pom.xml to generate jar with dependencies
@@ -37,7 +37,7 @@ java -jar target/jreloj-1.0-SNAPSHOT-jar-with-dependencies.jar
                 </descriptorRefs>
                 <archive>
                     <manifest>
-                        <mainClass>cl.jayclock.Appcl.jreloj.App</mainClass>
+                        <mainClass>cl.jay.clock.App</mainClass>
                     </manifest>
                 </archive>
             </configuration>
@@ -55,4 +55,4 @@ java -jar target/jreloj-1.0-SNAPSHOT-jar-with-dependencies.jar
 </build>
 ```
 
-Explore jreloj and feel free to contribute, report issues, or make suggestions for further improvements.
+Explore Jay Clock and feel free to contribute, report issues, or make suggestions for further improvements.

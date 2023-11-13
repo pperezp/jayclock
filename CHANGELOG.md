@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/pperezp/jayclock/compare/v1.1.0...v1.1.1) (2023-11-13)
+
+
+### Bug Fixes
+
+* fix CHANGELOG file (replace jreloj to jayclock) ([735a8dd](https://github.com/pperezp/jayclock/commit/735a8dddcc5be6e42022d2f887b32ed249db3bb3))
+* fix README.md and .versionrc.json files ([1bf0ef8](https://github.com/pperezp/jayclock/commit/1bf0ef8601c3f50c687c4c27b232296308b48565))
+
+
+### Refactor
+
+* change project name from "jreloj" to "jay clock" ([bcde96a](https://github.com/pperezp/jayclock/commit/bcde96a789ae24de7ff86899f66bdcba8a6e03ac))
+* delete look and files (in windows case) ([84bac44](https://github.com/pperezp/jayclock/commit/84bac44a9e8d3d2a5af55e16eefb4d972f2117d0))
+
 ## 1.1.0 (2023-11-12)
 
 

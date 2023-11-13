@@ -1,4 +1,4 @@
-package cl.jreloj.audio;
+package cl.jay.clock.audio;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

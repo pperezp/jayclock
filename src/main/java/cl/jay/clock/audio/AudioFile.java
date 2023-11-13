@@ -1,4 +1,4 @@
-package cl.jreloj.audio;
+package cl.jay.clock.audio;
 
 import javax.sound.sampled.*;
 import java.io.BufferedInputStream;

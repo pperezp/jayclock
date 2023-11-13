@@ -1,4 +1,4 @@
-package cl.jreloj.util;
+package cl.jay.clock.util;
 
 import javax.swing.*;
 

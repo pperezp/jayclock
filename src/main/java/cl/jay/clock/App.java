@@ -20,8 +20,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static java.awt.EventQueue.invokeLater;
-import static javax.swing.UIManager.getSystemLookAndFeelClassName;
-import static javax.swing.UIManager.setLookAndFeel;
 
 public class App extends JFrame {
 
@@ -484,6 +482,7 @@ public class App extends JFrame {
         appPanel.getAccessibleContext().setAccessibleName("");
 
         hourProgressBar.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        hourProgressBar.setForeground(new java.awt.Color(200, 0, 0));
         hourProgressBar.setMaximum(24);
         hourProgressBar.setToolTipText("Hora");
         hourProgressBar.setString("Hora");
@@ -491,7 +490,7 @@ public class App extends JFrame {
         getContentPane().add(hourProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 90));
 
         secondProgressBar.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        secondProgressBar.setForeground(new java.awt.Color(0, 1, 0));
+        secondProgressBar.setForeground(new java.awt.Color(200, 0, 0));
         secondProgressBar.setMaximum(59);
         secondProgressBar.setToolTipText("Segundo");
         secondProgressBar.setString("Segundo");
@@ -499,6 +498,7 @@ public class App extends JFrame {
         getContentPane().add(secondProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 260, 10));
 
         minuteProgressBar.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        minuteProgressBar.setForeground(new java.awt.Color(200, 0, 0));
         minuteProgressBar.setMaximum(59);
         minuteProgressBar.setToolTipText("Minuto");
         minuteProgressBar.setString("Minuto");
@@ -688,14 +688,6 @@ public class App extends JFrame {
     }//GEN-LAST:event_audioLabelMouseClicked
 
     public static void main(String args[]) {
-        if (System.getProperty("os.name").contains("Windows")) {
-            try {
-                setLookAndFeel(getSystemLookAndFeelClassName());
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                     UnsupportedLookAndFeelException ex) {
-                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
         invokeLater(() -> new App().setVisible(true));
     }
 
@@ -706,12 +698,12 @@ public class App extends JFrame {
         reminderMessageTextArea.setText("");
     }
 
-    private void setOpacityPercentage(float porcentaje) {
-        opacityPercentageLabel.setText(String.valueOf((int) porcentaje) + "%");
+    private void setOpacityPercentage(float percent) {
+        opacityPercentageLabel.setText(String.valueOf((int) percent) + "%");
     }
 
-    private void setColor(K.Component componente) {
-        switch (componente) {
+    private void setColor(K.Component component) {
+        switch (component) {
             case WINDOW_TITLE: {
                 appPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hora Actual", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), colorChooser.getColor())); // NOI18N
 //                ar_color.actualizarCampo("titulo", selector.getColor());

@@ -1,4 +1,4 @@
-package cl.jreloj;
+package cl.jay.clock;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

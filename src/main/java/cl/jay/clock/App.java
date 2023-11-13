@@ -1,10 +1,10 @@
 // Created on 08-11-2010, 08:46:58 PM
-package cl.jreloj;
+package cl.jay.clock;
 
-import cl.jreloj.audio.AudioFile;
-import cl.jreloj.audio.AudioHour;
-import cl.jreloj.audio.Player;
-import cl.jreloj.util.*;
+import cl.jay.clock.audio.AudioFile;
+import cl.jay.clock.audio.AudioHour;
+import cl.jay.clock.util.*;
+import cl.jay.clock.audio.Player;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -320,15 +320,15 @@ public class App extends JFrame {
         datetimeReminderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hourReminderComboBox.setEditable(true);
-        hourReminderComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"}));
+        hourReminderComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
         datetimeReminderPanel.add(hourReminderComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 50, -1));
 
         minuteReminderComboBox.setEditable(true);
-        minuteReminderComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
+        minuteReminderComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         datetimeReminderPanel.add(minuteReminderComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 50, -1));
 
         secondsReminderComboBox.setEditable(true);
-        secondsReminderComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
+        secondsReminderComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         datetimeReminderPanel.add(secondsReminderComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 50, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -411,7 +411,6 @@ public class App extends JFrame {
         opacityFrame.getContentPane().add(opacityPanel, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JReloj");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusCycleRoot(false);
         setFocusable(false);
@@ -421,13 +420,12 @@ public class App extends JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         appPanel.setBackground(new java.awt.Color(0, 0, 0));
-        appPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hora Actual", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 13), new java.awt.Color(255, 0, 0))); // NOI18N
+        appPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         appPanel.setForeground(new java.awt.Color(1, 1, 1));
         appPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 appPanelMouseDragged(evt);
             }
-
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 appPanelMouseMoved(evt);
             }
@@ -436,7 +434,6 @@ public class App extends JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 appPanelMousePressed(evt);
             }
-
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 appPanelMouseReleased(evt);
             }
@@ -463,7 +460,7 @@ public class App extends JFrame {
         osNameLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         osNameLabel.setForeground(new java.awt.Color(255, 255, 0));
         osNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        osNameLabel.setText("SO Huéped: " + System.getProperty("os.name") + " ");
+        osNameLabel.setText("SO Huéped: "+System.getProperty("os.name")+" ");
         appPanel.add(osNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 220, 20));
 
         audioLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -484,6 +481,7 @@ public class App extends JFrame {
         appPanel.add(hourLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 50));
 
         getContentPane().add(appPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 90));
+        appPanel.getAccessibleContext().setAccessibleName("");
 
         hourProgressBar.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         hourProgressBar.setMaximum(24);
@@ -790,6 +788,7 @@ public class App extends JFrame {
         hourProgressBar.setOrientation(SwingConstants.VERTICAL);
         appSystemtray = new AppSystemtray();
         audioLabel.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/megaphone.png"))));
+        setTitle("Jay Clock");
     }
 
     private class HourThread extends Thread {
@@ -913,7 +912,7 @@ public class App extends JFrame {
 
     private class AppSystemtray {
 
-        private final String TITLE = "JReloj";
+        private final String TITLE = "Jay Clock";
         private TrayIcon trayicon;
         private SystemTray tray;
         private Image icon;

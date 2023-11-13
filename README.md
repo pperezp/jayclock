@@ -24,6 +24,7 @@ java -jar target/jreloj-1.0-SNAPSHOT-jar-with-dependencies.jar
 ## Necessary add this to pom.xml to generate jar with dependencies
 
 ```xml
+
 <build>
     <plugins>
         <plugin>
@@ -36,7 +37,7 @@ java -jar target/jreloj-1.0-SNAPSHOT-jar-with-dependencies.jar
                 </descriptorRefs>
                 <archive>
                     <manifest>
-                        <mainClass>cl.jreloj.Appcl.jreloj.App</mainClass>
+                        <mainClass>cl.jayclock.Appcl.jreloj.App</mainClass>
                     </manifest>
                 </archive>
             </configuration>

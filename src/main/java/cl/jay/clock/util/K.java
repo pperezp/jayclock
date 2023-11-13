@@ -1,4 +1,4 @@
-package cl.jreloj.util;
+package cl.jay.clock.util;
 
 public class K {
     public enum Component {

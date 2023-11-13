@@ -1,6 +1,6 @@
-package cl.jreloj.audio;
+package cl.jay.clock.audio;
 
-import cl.jreloj.util.Hour;
+import cl.jay.clock.util.Hour;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;

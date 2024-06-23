@@ -10,9 +10,7 @@ public class DateUtil {
     }
 
     public static String getFormattedDate() {
-        String pattern = "EEE, dd'-'MMM'-'yyyy";
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
-
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("EEE, dd'-'MMM'-'yyyy");
         return LocalDate.now().format(dateTimeFormatter);
     }
 }

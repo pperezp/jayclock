@@ -5,11 +5,14 @@ import java.util.GregorianCalendar;
 
 public class Hour {
 
-    private static Calendar calendar;
+    private Hour() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private static int hourOfDay, minute, second, millisecond;
 
     private static void buildHour() {
-        calendar = new GregorianCalendar();
+        Calendar calendar = new GregorianCalendar();
 
         hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
         minute = calendar.get(Calendar.MINUTE);
@@ -42,41 +45,10 @@ public class Hour {
     }
 
     public static String change(int value) {
-        switch (value) {
-            case 0: {
-                return "00";
-            }
-            case 1: {
-                return "01";
-            }
-            case 2: {
-                return "02";
-            }
-            case 3: {
-                return "03";
-            }
-            case 4: {
-                return "04";
-            }
-            case 5: {
-                return "05";
-            }
-            case 6: {
-                return "06";
-            }
-            case 7: {
-                return "07";
-            }
-            case 8: {
-                return "08";
-            }
-            case 9: {
-                return "09";
-            }
-
-            default: {
-                return Integer.toString(value);
-            }
+        if (value < 10) {
+            return "0" + value;
         }
+
+        return Integer.toString(value);
     }
 }
